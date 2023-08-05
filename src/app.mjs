@@ -10,9 +10,14 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
-app.use('/', (req, res) => {
-  return res.send('Welcome rocket code team.');
+app.use('/', router);
+
+app.use((req, res, next) => {
+  res.status(404).json({
+    message: 'This endpoint is not allowed by the server',
+    error: true,
+  });
+  next();
 });
-app.use('/api', router);
 
 export default app;
