@@ -10,6 +10,9 @@ app.use(cors());
 
 app.use(express.urlencoded({ extended: false }));
 
+app.use('/', (req, res) => {
+  return res.send('Welcome rocket code team.');
+});
 app.use('/api', router);
 
 export default app;
