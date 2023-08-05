@@ -1,0 +1,28 @@
+{
+  "name": "rocket-code-login",
+  "version": "1.0.0",
+  "description": "REST API to conect with existing mysql database. This repository gonna be my response to the technical exam from rocket code team from the fullstack development role.",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Julian Flores",
+  "license": "ISC",
+  "devDependencies": {
+    "eslint": "^8.46.0",
+    "eslint-config-semistandard": "^17.0.0",
+    "eslint-config-standard": "^17.1.0",
+    "eslint-plugin-import": "^2.28.0",
+    "eslint-plugin-n": "^15.7.0",
+    "eslint-plugin-promise": "^6.1.1",
+    "nodemon": "^3.0.1"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.3.1",
+    "express": "^4.18.2",
+    "mysql": "^2.18.1"
+  }
+}
