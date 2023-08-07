@@ -1,5 +1,3 @@
-use testing_ali_fullstack;
-
 CREATE TABLE IF NOT EXISTS `users_test_julianflores` (
     `id` INT NOT NULL AUTO_INCREMENT,
     `nombre` VARCHAR(255) NOT NULL,
