@@ -1,5 +1,4 @@
 import { createConnection } from 'mysql';
-import fs from 'node:fs';
 
 import {
   DDBB_HOST,
@@ -17,9 +16,22 @@ const connection = createConnection({
 
 connection.query('USE testing_ali_fullstack', (error, results) => {
   if (error) throw new Error(error);
-  const query = fs.readFileSync('db/database.sql', 'utf8');
+  const query = `CREATE TABLE IF NOT EXISTS 'users_test_julianflores' (
+    'id' INT NOT NULL AUTO_INCREMENT,
+    'nombre' VARCHAR(255) NOT NULL,
+    'segundo_nombre' VARCHAR(255),
+    'apellido_paterno' VARCHAR(255) NOT NULL,
+    'apellido_materno' VARCHAR(255),
+    'fecha_de_nacimiento' DATE,
+    'email' VARCHAR(255) NOT NULL,
+    'telefono' VARCHAR(20),
+    PRIMARY KEY ('id')
+)`;
 
-  connection.query(query);
+  connection.query(query, (error, results) => {
+    if (error) throw new Error(error);
+    return;
+  });
 });
 
 export { connection };
