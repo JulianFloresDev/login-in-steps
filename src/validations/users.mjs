@@ -14,12 +14,11 @@ const userCreateValidation = async (req, res, next) => {
         'string.max': 'El nombre no puede tener más de 255 caracteres.',
       }),
     segundo_nombre: Joi.string()
-      .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/)
-      .min(3)
+      .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]*/)
+      .allow('')
       .max(255)
       .messages({
         'string.pattern.base': 'El segundo nombre solo puede contener letras.',
-        'string.min': 'El segundo nombre debe tener al menos 3 caracteres.',
         'string.max': 'El segundo nombre no puede tener más de 255 caracteres.',
       }),
     apellido_paterno: Joi.string()
@@ -36,17 +35,16 @@ const userCreateValidation = async (req, res, next) => {
           'El apellido paterno no puede tener más de 255 caracteres.',
       }),
     apellido_materno: Joi.string()
-      .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]+$/)
-      .min(3)
+      .regex(/^[a-zA-ZáéíóúÁÉÍÓÚñÑ]*/)
+      .allow('')
       .max(255)
       .messages({
         'string.pattern.base':
           'El apellido materno solo puede contener letras.',
-        'string.min': 'El apellido materno debe tener al menos 3 caracteres.',
         'string.max':
           'El apellido materno no puede tener más de 255 caracteres.',
       }),
-    fecha_de_nacimiento: Joi.date().less('now').messages({
+    fecha_de_nacimiento: Joi.date().iso().less('now').messages({
       'date.less':
         'Su fecha de nacimiento no puede ser posterior o igual a la fecha actual.',
     }),
